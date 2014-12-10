@@ -1,0 +1,9 @@
+rm(list = ls())
+f.intron <- read.table("Tidy_Frozen_intronlength.txt")
+m.intron <- read.table("Tidy_Maker_intronlength.txt")
+f.intron.density <- density(f.intron$V1)
+m.intron.density <- density(m.intron$V1)
+plot (f.intron.density,xlim=c(0,1000),ylim=c(0.00,0.07),col="red",xlab="Length of Intron bp",main = "Frozen Vs Maker Intron length distribution")
+lines (m.intron.density,xlim=c(0,1000),ylim=c(0,0.07),col="blue")
+legend("topleft", c("Frozen","Maker"), cex=0.8,lty=c(1,1),lwd=c(2.5,2.5), col=c("red","blue"))
+

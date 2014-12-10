@@ -1,0 +1,9 @@
+rm(list = ls())
+f.exon <- read.table("Tidy_Frozen_exonlength.txt")
+m.exon <- read.table("Tidy_Maker_exonlength.txt")
+f.exon.density <- density(f.exon$V1)
+m.exon.density <- density(m.exon$V1)
+plot (f.exon.density,xlim=c(0,2000),ylim=c(0.00,0.01),col="red",xlab="Length of exon bp",main = "Frozen Vs Maker exon length distribution")
+lines (m.exon.density,xlim=c(0,2000),ylim=c(0,0.01),col="blue")
+legend("topleft", c("Frozen","Maker"), cex=0.8,lty=c(1,1),lwd=c(2.5,2.5), col=c("red","blue"))
+
