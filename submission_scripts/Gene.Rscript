@@ -1,0 +1,9 @@
+rm(list = ls())
+f.gene <- read.table("Tidy_Frozen_genelength.txt")
+m.gene <- read.table("Tidy_Maker_genelength.txt")
+f.gene.density <- density(f.gene$V1)
+m.gene.density <- density(m.gene$V1)
+plot (f.gene.density,xlim=c(0,20000),ylim=c(0.00,0.01),col="red",xlab="Length of gene bp",main = "Frozen Vs Maker Gene length distribution")
+lines (m.gene.density,xlim=c(0,20000),ylim=c(0,0.01),col="blue")
+legend("topleft", c("Frozen","Maker"), cex=0.8,lty=c(1,1),lwd=c(2.5,2.5), col=c("red","blue"))
+

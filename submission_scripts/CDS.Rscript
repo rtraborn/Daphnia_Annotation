@@ -1,0 +1,9 @@
+rm(list = ls())
+f.CDS <- read.table("Tidy_Frozen_CDSlength.txt")
+m.CDS <- read.table("Tidy_Maker_CDSlength.txt")
+f.CDS.density <- density(f.CDS$V1)
+m.CDS.density <- density(m.CDS$V1)
+plot (f.CDS.density,xlim=c(0,2000),ylim=c(0.00,0.01),col="red",xlab="Length of CDS bp",main = "Frozen Vs Maker CDS length distribution")
+lines (m.CDS.density,xlim=c(0,2000),ylim=c(0,0.01),col="blue")
+legend("topleft", c("Frozen","Maker"), cex=0.8,lty=c(1,1),lwd=c(2.5,2.5), col=c("red","blue"))
+
